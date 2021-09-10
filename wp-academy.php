@@ -37,7 +37,9 @@ final class WpAcademy {
      */
     
    private  function __construct() {
-        
+        $this->define_constant();
+
+        register_activation_hook(WP_ACADEMY_FILE, [$this,'activate'] );
 
 
      }
@@ -51,13 +53,27 @@ final class WpAcademy {
          }
          return $instance;
      }
-
+/**
+ * plugin contstant deinfend
+ */
      public function define_constant(){
          define('WP_ACADEMY_VERSION',self::version);
          define("WP_ACADEMY_FILE",__FILE__);
          define("WP_ACADEMY_PATH",__DIR__);
          define("WP_ACADEMY_URL",plugins_url('', WP_ACADEMY_FILE ));
          define("WP_ACADEMY_ASSETS",WP_ACADEMY_URL .'/assets');
+     }
+
+    /*
+    * plugin activation
+     */
+
+     public function activate(){
+         $installded = get_option( "wp_academy_installed" );
+         if(!$installded){
+            update_option( 'wp_academy_installed', time() );
+         }
+         update_option( 'wp_academy_version', WP_ACADEMY_VERSION);
      }
 
  }

@@ -21,8 +21,17 @@ if ( ! defined( 'ABSPATH' ) ) {
  * The main
  */
 
- class ClassName extends AnotherClass {
-     function __construct(argument) {
-         # code....
+Final class WPAcademy {
+     function __construct() {
+       
+     }
+
+     public static function init(){
+         static $instance =  false;
+
+         if(!$instance){
+             $instance = new self();
+         }
+         return $instance;
      }
  }

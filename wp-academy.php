@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 Final class WPAcademy {
-     function __construct() {
+    private function __construct() {
        
      }
 
@@ -33,5 +33,14 @@ Final class WPAcademy {
              $instance = new self();
          }
          return $instance;
+     }
+
+/**
+ * plugin initilizes
+ * @return \WpAcademy
+ */
+
+     function wp_academy(){
+        WPAcademy::init();
      }
  }

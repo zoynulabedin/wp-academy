@@ -17,6 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once __DIR__ .'/vendor/autoload.php';
 
+
 /**
  * The main class
  */
@@ -40,7 +41,7 @@ final class WpAcademy {
         $this->define_constant();
 
         register_activation_hook(WP_ACADEMY_FILE, [$this,'activate'] );
-
+        add_action('plugins_loaded',[$this,'init_plugins']);
 
      }
 
@@ -64,6 +65,20 @@ final class WpAcademy {
          define("WP_ACADEMY_ASSETS",WP_ACADEMY_URL .'/assets');
      }
 
+
+/**
+ * initialize the plugin
+ */
+
+public function init_plugins(){
+
+    if(is_admin()){
+        new Zoy\WpAcademy\Admin();
+    }else{
+        new Zoy\WpAcademy\Frontend();
+    }
+   
+}
     /*
     * plugin activation
      */

@@ -1,21 +1,20 @@
 {
-    "name": "user/wp-academy",
-    "description": "just learning purpose",
+    "name": "zoy/wp-academy",
+    "description": "learing purpose",
     "type": "wordpress-plugin",
     "license": "GPLv2",
     "autoload": {
         "psr-4": {
-            "User\\WpAcademy\\": "includes/",
-            "files" :[]
+            "Zoy\\WpAcademy\\": "includes/",
+            "File" :[]
         }
     },
     "authors": [
         {
             "name": "Md zoynul abedin",
-            "email": "33788041+zoynulabedin@users.noreply.github.com"
+            "email": "trustcodernet@gmail.com"
         }
     ],
     "minimum-stability": "dev",
     "require": {}
-  
 }

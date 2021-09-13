@@ -32,7 +32,9 @@ namespace Zoy\WpAcademy\Admin;
             include $template;
         }
     }
-
+/**
+ * From handler 
+ */
     public function from_handler(){
         if(!isset($_POST['submit_address'])){
             return;
@@ -44,5 +46,8 @@ namespace Zoy\WpAcademy\Admin;
         if(!current_user_can('manage_options')){
             wp_die('Are you cheating');
         }
+
+        var_dump($_POST);
+        exit;
     }
  }
